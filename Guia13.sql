@@ -6,10 +6,10 @@ GO
 
 -- Parte 2: Creacion de la base de datos, esquemas y tablas
 -- Todo esto se creo en el login sa
-CREATE DATABASE Alumnos_Carnet
+CREATE DATABASE Alumnos_UO262364
 GO
 
-USE Alumnos_Carnet
+USE Alumnos_UO262364
 GO
 
 --Creacion de esquemas
@@ -53,31 +53,31 @@ select * from nota.notas
 GO
 
 -- Parte 3: Creacion de inicio de sesion
-CREATE LOGIN ca201301
-WITH PASSWORD = 'ca201301', CHECK_POLICY = OFF, DEFAULT_DATABASE = Alumnos_Carnet
+CREATE LOGIN UO262364
+WITH PASSWORD = '12345678', CHECK_POLICY = OFF, DEFAULT_DATABASE = Alumnos_UO262364
 GO
 
-CREATE LOGIN guiaCarnet WITH PASSWORD = '12345'
+CREATE LOGIN guiaUO262364 WITH PASSWORD = '12345'
 GO
 
 -- Parte 4: Eliminando inicio de sesion
-DROP LOGIN guiaCarnet
+DROP LOGIN guiaUO262364
 GO
 
 -- Parte 4: Creacion de usuarios de base de datos
-USE Alumnos_Carnet
+USE Alumnos_UO262364
 GO
 
-CREATE USER SuNombre FOR LOGIN ca201301
+CREATE USER AlejandroUmana FOR LOGIN UO262364
 WITH DEFAULT_SCHEMA = alumno
 GO
 
-ALTER AUTHORIZATION ON SCHEMA::alumno TO SuNombre
+ALTER AUTHORIZATION ON SCHEMA::alumno TO AlejandroUmana
 GO
 
--- Con el login ca201301: alumno.alumnos es accesible
+-- Con el login UO262364: alumno.alumnos es accesible
 select * from alumno.alumnos
--- Con el login ca201301: genera error de permiso SELECT denegado
+-- Con el login UO262364: genera error de permiso SELECT denegado
 Select * from nota.Notas
 GO
 
@@ -94,10 +94,10 @@ INSERT INTO Materias VALUES(103,'Diseño Web')
 INSERT INTO Materias VALUES(104,'Algebra')
 GO
 
-GRANT SELECT, UPDATE ON OBJECT::dbo.Materias TO SuNombre
+GRANT SELECT, UPDATE ON OBJECT::dbo.Materias TO AlejandroUmana
 GO
 
--- Con el login ca201301
+-- Con el login UO262364
 --Haciendo uso de SELECT
 SELECT * FROM dbo.Materias
 
@@ -109,11 +109,11 @@ INSERT INTO dbo.Materias VALUES(105,'SQL Server')
 GO
 
 -- Parte 6: Agregando permisos a esquemas (login sa)
-GRANT CREATE PROCEDURE, CREATE TABLE TO SuNombre
+GRANT CREATE PROCEDURE, CREATE TABLE TO AlejandroUmana
 GO
 
--- Con el login ca201301
-USE Alumnos_Carnet
+-- Con el login UO262364
+USE Alumnos_UO262364
 GO
 CREATE TABLE Prueba
 (column1 INT NOT NULL,
@@ -128,10 +128,10 @@ GO
 
 -- Login sa
 GRANT CREATE VIEW
-TO SuNombre
+TO AlejandroUmana
 GO
 
--- Con el login ca201301
+-- Con el login UO262364
 CREATE VIEW Reporte
 as
 SELECT carnet,nombres,apellidos FROM alumno.alumnos

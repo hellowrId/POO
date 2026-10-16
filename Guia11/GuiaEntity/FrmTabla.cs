@@ -9,9 +9,14 @@ namespace GuiaEntity
         public int? id;
         Persona personas = null;
 
-        public FrmTabla(int? id = null)
+        // constructor sin parámetros (requerido por el diseñador de Visual Studio)
+        public FrmTabla()
         {
             InitializeComponent();
+        }
+
+        public FrmTabla(int? id) : this()
+        {
             this.id = id;
             if (id != null)
             {

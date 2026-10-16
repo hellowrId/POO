@@ -32,6 +32,7 @@ namespace GuiaEntity
             this.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SplitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.SplitContainer1.Name = "SplitContainer1";
+            this.SplitContainer1.Size = new System.Drawing.Size(640, 400);
             this.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             this.SplitContainer1.SplitterDistance = 50;
             this.SplitContainer1.Panel1.Controls.Add(this.BtnNuevo);
@@ -74,6 +75,7 @@ namespace GuiaEntity
             this.DgvDatos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgvDatos.MultiSelect = false;
             this.DgvDatos.Name = "DgvDatos";
+            this.DgvDatos.Size = new System.Drawing.Size(640, 346);
             this.DgvDatos.ReadOnly = true;
             this.DgvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             //

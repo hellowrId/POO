@@ -1,0 +1,12 @@
+@model IEnumerable<AlumnosWeb.Models.Alumno>
+@{
+    ViewData["Title"] = "Alumnos";
+}
+<h2>Alumnos</h2>
+<table class="table">
+    <tr><th>Carnet</th><th>Nombres</th><th>Apellidos</th></tr>
+    @foreach (var a in Model)
+    {
+        <tr><td>@a.carnet</td><td>@a.nombres</td><td>@a.apellidos</td></tr>
+    }
+</table>

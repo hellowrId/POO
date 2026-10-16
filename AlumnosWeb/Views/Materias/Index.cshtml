@@ -1,0 +1,16 @@
+@model IEnumerable<AlumnosWeb.Models.Materia>
+@{
+    ViewData["Title"] = "Materias";
+}
+<h2>Materias</h2>
+<table class="table">
+    <tr><th>ID</th><th>Nombre</th><th></th></tr>
+    @foreach (var m in Model)
+    {
+        <tr>
+            <td>@m.ID</td>
+            <td>@m.nombre</td>
+            <td><a asp-action="Edit" asp-route-id="@m.ID">Editar</a></td>
+        </tr>
+    }
+</table>
